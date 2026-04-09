@@ -1,6 +1,7 @@
 import { SmartSources } from "smart-sources";
 import { render as chat_template } from "./components/threads.js";
 import { get_language_options, get_initial_message } from "./utils/self_referential_keywords.js";
+import { is_thread_storage_path } from "../src/utils/thread_event_filter.js";
 /**
  * @class SmartThreads
  * @extends SmartSources
@@ -9,6 +10,12 @@ import { get_language_options, get_initial_message } from "./utils/self_referent
  * control for all chat-related operations.
  */
 export class SmartThreads extends SmartSources {
+  should_handle_event(event = {}) {
+    if (!super.should_handle_event(event)) return false;
+    const path = this.get_event_path(event);
+    return is_thread_storage_path(path, this.source_dir);
+  }
+
   // /**
   //  * Initializes the file system and preloads chat models
   //  * @async
