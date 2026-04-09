@@ -4,7 +4,7 @@
   "author": "Brian Petro",
   "description": "Chat with your notes & see links to related content with Local or Remote models.",
   "minAppVersion": "1.1.0",
-  "authorUrl": "https://smartconnections.app",
+  "authorUrl": "https://github.com/SoPat712/obsidian-intelligent-linking",
   "isDesktopOnly": false,
   "version": "3.0.80"
 }

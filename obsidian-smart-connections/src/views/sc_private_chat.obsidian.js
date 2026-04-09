@@ -1,5 +1,7 @@
 import { ItemView } from "obsidian";
 
+const REPO_URL = "https://github.com/SoPat712/obsidian-intelligent-linking";
+
 export class SmartPrivateChatView extends ItemView {
   static get view_type() { return 'smart-private-chat'; }
   static get display_text() { return "Smart Connections Supporter Private Chat"; }
@@ -19,25 +21,14 @@ export class SmartPrivateChatView extends ItemView {
   }
   initialize() {
     this.containerEl.empty();
-    // insert button to refresh
-    const refreshButton = this.containerEl.createEl("button", {
-      text: "Refresh",
+    const wrapper = this.containerEl.createDiv({ cls: "smart-private-chat-placeholder" });
+    wrapper.createEl("h3", { text: "Private Chat is not hosted in this fork" });
+    wrapper.createEl("p", {
+      text: "Open the fork repository for current project links, setup details, and updates.",
     });
-    refreshButton.addEventListener("click", () => {
-      this.initialize();
+    const openButton = wrapper.createEl("button", { text: "Open Repository" });
+    openButton.addEventListener("click", () => {
+      window.open(REPO_URL, "_blank");
     });
-    // insert ChatGPT
-    this.containerEl.appendChild(this.create());
-  }
-
-  create() {
-    this.frame = document.createElement("webview");
-    this.frame.setAttribute("nodeintegration", "");
-    this.frame.setAttribute("contextisolation", "");
-    this.frame.setAttribute("allowpopups", "");
-    this.frame.style.width = "100%";
-    this.frame.style.height = "100%";
-    this.frame.setAttribute("src", "https://chat.smartconnections.app");
-    return this.frame;
   }
 }

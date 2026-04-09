@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brianpetro/obsidian-smart-connections.git"
+    "url": "git+https://github.com/SoPat712/obsidian-intelligent-linking.git"
   },
   "keywords": [
     "Obsidian",
@@ -24,9 +24,9 @@
   "author": "🌴 Brian (Brian Petro)",
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
-    "url": "https://github.com/brianpetro/obsidian-smart-connections/issues"
+    "url": "https://github.com/SoPat712/obsidian-intelligent-linking"
   },
-  "homepage": "https://smartconnections.app",
+  "homepage": "https://github.com/SoPat712/obsidian-intelligent-linking",
   "devDependencies": {
     "@xenova/transformers": "latest",
     "archiver": "^6.0.1",

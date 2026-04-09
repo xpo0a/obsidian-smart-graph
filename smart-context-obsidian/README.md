@@ -12,16 +12,16 @@
 🤖 Compatible with any AI workflow
 ⚔️ Mission-driven, community-supported
 
-[![Install Smart Context](https://smartconnections.app/assets/smart-context-obsidian/smart-context.gif)](https://obsidian.md/plugins?id=smart-context)
+[![Install Smart Context](./assets/smart-context.gif)](https://obsidian.md/plugins?id=smart-context)
 ## Getting started
 
-[![Smart Context Getting Started](https://smartconnections.app/assets/smart-context-obsidian/smart-context-getting-started.gif)](https://smartconnections.app/story/smart-context-getting-started/)
+[![Smart Context Getting Started](./assets/smart-context-getting-started.gif)](https://github.com/SoPat712/obsidian-intelligent-linking)
 
-Read the [Getting Started guide](https://smartconnections.app/smart-plugins/context-getting-started/) for a step-by-step walkthrough.
+Read the [Getting Started guide](https://github.com/SoPat712/obsidian-intelligent-linking) for a step-by-step walkthrough.
 
 ## Mission-driven
 
-The Obsidian community proved user-aligned software can out-innovate closed platforms. Smart Context embodies that spirit—open-source tools that **empower individuals**, not gatekeepers. Read about the [Smart Principles](https://smartconnections.app/smart-principles/) that guide development.
+The Obsidian community proved user-aligned software can out-innovate closed platforms. Smart Context embodies that spirit—open-source tools that **empower individuals**, not gatekeepers. Read about the [Smart Principles](https://github.com/SoPat712/obsidian-intelligent-linking) that guide development.
 
 ## Private by Design
 

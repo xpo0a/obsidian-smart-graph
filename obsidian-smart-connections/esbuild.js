@@ -1,15 +1,98 @@
-import esbuild from 'esbuild';
 import fs from 'fs';
 import path from 'path';
-import 'dotenv/config';
-import { build_smart_env_config } from 'obsidian-smart-env/build/build_env_config.js';
 import { create_banner } from './src/utils/banner.js';
+
+try {
+  await import('dotenv/config');
+} catch (error) {
+  try {
+    const fallback_url = new URL('../jsbrains/node_modules/dotenv/config.js', import.meta.url);
+    await import(fallback_url.href);
+    console.warn(`[build] Using fallback dotenv from ${fallback_url.pathname}: ${error.message}`);
+  } catch {
+    console.warn(`[build] Skipping dotenv preload: ${error.message}`);
+  }
+}
+
+let esbuild;
+try {
+  ({ default: esbuild } = await import('esbuild'));
+} catch (error) {
+  const fallback_url = new URL('../jsbrains/node_modules/esbuild/lib/main.js', import.meta.url);
+  ({ default: esbuild } = await import(fallback_url.href));
+  console.warn(`[build] Using fallback esbuild from ${fallback_url.pathname}: ${error.message}`);
+}
 
 const roots = [
   path.resolve(process.cwd(), 'src'),
   // path.resolve(process.cwd(), '..', 'smart-context-obsidian', 'src'),
 ];
-build_smart_env_config(process.cwd(), roots);
+try {
+  const { build_smart_env_config } = await import('obsidian-smart-env/build/build_env_config.js');
+  build_smart_env_config(process.cwd(), roots);
+} catch (error) {
+  console.warn(`[build] Skipping smart_env.config regeneration: ${error.message}`);
+}
+
+function resolve_with_extensions(candidate_path) {
+  const attempts = [
+    candidate_path,
+    `${candidate_path}.js`,
+    `${candidate_path}.json`,
+    `${candidate_path}.css`,
+    `${candidate_path}.md`,
+    path.join(candidate_path, 'index.js'),
+  ];
+  return attempts.find((attempt) => fs.existsSync(attempt)) || null;
+}
+
+function resolve_package_entry(package_dir) {
+  const package_json_path = path.join(package_dir, 'package.json');
+  if (!fs.existsSync(package_json_path)) {
+    return resolve_with_extensions(path.join(package_dir, 'index'));
+  }
+  const package_json = JSON.parse(fs.readFileSync(package_json_path, 'utf8'));
+  return resolve_with_extensions(path.join(package_dir, package_json.main || 'index.js'));
+}
+
+function resolve_workspace_import(import_path) {
+  const repo_root = path.resolve(process.cwd(), '..');
+  const special_packages = {
+    'obsidian-smart-env': path.join(repo_root, 'obsidian-smart-env'),
+    'smart-chat-obsidian': path.join(repo_root, 'smart-chat-obsidian'),
+    'smart-context-obsidian': path.join(repo_root, 'smart-context-obsidian'),
+    'smart-file-system': path.join(repo_root, 'jsbrains', 'smart-fs'),
+    'js-tiktoken': path.join(repo_root, 'jsbrains', 'node_modules', 'js-tiktoken'),
+  };
+  const [package_name, ...rest] = import_path.split('/');
+  const package_dir = special_packages[package_name]
+    || (package_name.startsWith('smart-')
+      ? path.join(repo_root, 'jsbrains', package_name)
+      : null)
+  ;
+  if (!package_dir || !fs.existsSync(package_dir)) {
+    return null;
+  }
+  if (rest.length === 0) {
+    return resolve_package_entry(package_dir);
+  }
+  return resolve_with_extensions(path.join(package_dir, rest.join('/')));
+}
+
+function workspace_resolver_plugin() {
+  return {
+    name: 'workspace-resolver',
+    setup(build) {
+      build.onResolve({ filter: /^(obsidian-smart-env|smart-chat-obsidian|smart-context-obsidian|smart-file-system|js-tiktoken|smart-[^/]+)(\/.*)?$/ }, (args) => {
+        const resolved = resolve_workspace_import(args.path);
+        if (!resolved) {
+          return null;
+        }
+        return { path: resolved };
+      });
+    },
+  };
+}
 
 /**
  * Plugin to process CSS files imported with an import attribute:
@@ -142,11 +225,12 @@ esbuild.build({
   ],
   define: {
     'process.env.DEFAULT_OPEN_ROUTER_API_KEY': JSON.stringify(process.env.DEFAULT_OPEN_ROUTER_API_KEY || ''),
+    '__ENABLE_UPSTREAM_UPDATE_CHECK__': JSON.stringify(process.env.ENABLE_UPSTREAM_UPDATE_CHECK === '1'),
   },
   loader: {
     '.css': 'text',
   },
-  plugins: [css_with_plugin(), markdown_plugin],
+  plugins: [workspace_resolver_plugin(), css_with_plugin(), markdown_plugin],
   banner: { js: copyright_banner },
 }).then(() => {
   console.log('Build complete');

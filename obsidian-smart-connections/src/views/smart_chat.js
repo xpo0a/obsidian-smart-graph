@@ -108,7 +108,7 @@ export async function post_process(obsidian_view, frag, opts) {
   // help documentation
   const help_button = frag.querySelector("[title='Help']");
   help_button.addEventListener("click", () => {
-    window.open("https://docs.smartconnections.app/smart-chat", "_blank");
+    window.open("https://github.com/SoPat712/obsidian-intelligent-linking", "_blank");
   });
 
   // New chat button

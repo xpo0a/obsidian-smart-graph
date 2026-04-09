@@ -6,9 +6,9 @@
 * Search for **Smart Context** and select **Install**
 * Click **Enable** to activate the plugin
 
-[![Smart Context installation](./assets/smart-context-getting_started.gif)](https://smartconnections.app/story/smart-context-getting-started/)
+[![Smart Context installation](./assets/smart-context-getting_started.gif)](https://github.com/SoPat712/obsidian-intelligent-linking)
 
-Read the [Getting Started guide](https://smartconnections.app/story/smart-context-getting-started/) for a step-by-step walkthrough.
+Read the [Getting Started guide](https://github.com/SoPat712/obsidian-intelligent-linking) for a step-by-step walkthrough.
 
 ### Your first clipboard export
 

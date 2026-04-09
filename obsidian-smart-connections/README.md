@@ -75,8 +75,8 @@ A [local model](https://www.perplexity.ai/search/what-are-local-models-dE0ni8CVQ
 
 ### Feature walkthrough
 Access the Getting Started guide from the Smart Connections settings.
-[![Smart Context Getting Started](/assets/smart-connections-getting-started.gif)](https://smartconnections.app/story/smart-connections-getting-started/)
-Watch the [feature walkthrough slideshow](https://smartconnections.app/story/smart-connections-getting-started/) or read the [Getting Started guide](https://smartconnections.app/smart-connections-getting-started/) to learn how Smart Connections empowers your workflows.
+[![Smart Context Getting Started](/assets/smart-connections-getting-started.gif)](https://github.com/SoPat712/obsidian-intelligent-linking)
+Watch the [feature walkthrough slideshow](https://github.com/SoPat712/obsidian-intelligent-linking) or read the [Getting Started guide](https://github.com/SoPat712/obsidian-intelligent-linking) to learn how Smart Connections empowers your workflows.
 
 ### Walkthrough video
 Watch this video to see Smart Connections and Smart Chat in action.
@@ -116,7 +116,7 @@ As luck has it, I began jotting down lines of code for automations in my school 
 
 ### Smart Plugins
 I build Smart Plugins, like Smart Connections, to empower myself to explore new concepts, design better tools, and handle more complexity in my Obsidian. My goal is to make as many of these concepts and tools available to you.
-[Browse all Smart Plugins](https://smartconnections.app/smart-plugins/) →
+[Browse all Smart Plugins](https://github.com/SoPat712/obsidian-intelligent-linking) →
 
 ### Smart Business Model
 The reality is that most valuable tools cannot exist without financial support. But that doesn't mean having to sell-out or shutdown. Obsidian has shown us that valuable software can be user-funded, and I believe now is a better time than ever to bring the vision of user-aligned software to reality.
@@ -146,4 +146,4 @@ However, if you must use a third-party sync service, be sure to **add the `.smar
 
 ### Windows dedicated GPU
 If embeddings default to the integrated GPU, set `ollama.exe` to **High performance** in your GPU control panel.
-See [issue #1028](https://github.com/brianpetro/obsidian-smart-connections/issues/1028#issuecomment-3070187288) for context.
+See [issue #1028](https://github.com/SoPat712/obsidian-intelligent-linking) for context.

@@ -32,11 +32,14 @@ import { get_random_connection } from "./utils/get_random_connection.js";
 import { add_smart_dice_icon } from "./utils/add_icons.js";
 import { determine_installed_at } from "./utils/determine_installed_at.js";
 import { build_connections_codeblock } from "./utils/build_connections_codeblock.js";
+import { is_server_version_newer } from "./utils/version_compare.js";
 
 // Smart Context imports
 import { context_commands } from "smart-context-obsidian/src/commands/context_commands.js";
 import { get_selected_note_keys } from "smart-context-obsidian/src/utils/get_selected_note_keys.js";
 import { ContextsDashboardView } from "smart-context-obsidian/src/views/contexts_dashboard_view.js";
+
+const ENABLE_UPSTREAM_UPDATE_CHECK = __ENABLE_UPSTREAM_UPDATE_CHECK__;
 
 export default class SmartConnectionsPlugin extends Plugin {
   ConnectionsSettingsTab = ScSettingsTab;
@@ -119,7 +122,7 @@ export default class SmartConnectionsPlugin extends Plugin {
       setTimeout(() => {
         StoryModal.open(this, {
           title: "Getting Started With Smart Connections",
-          url: "https://smartconnections.app/story/smart-connections-getting-started/?utm_source=sc-op-new-user",
+          url: "https://github.com/SoPat712/obsidian-intelligent-linking",
         });
       }, 1000);
     }
@@ -230,14 +233,16 @@ export default class SmartConnectionsPlugin extends Plugin {
       }
       await this.set_last_known_version(this.manifest.version);
     }
+    if (!ENABLE_UPSTREAM_UPDATE_CHECK) return;
     setTimeout(this.check_for_update.bind(this), 3000);
     setInterval(this.check_for_update.bind(this), 10800000);
   }
 
   async check_for_update() {
+    if (!ENABLE_UPSTREAM_UPDATE_CHECK) return;
     try {
       const { json: response } = await requestUrl({
-        url: "https://api.github.com/repos/brianpetro/obsidian-smart-connections/releases/latest",
+        url: "https://api.github.com/repos/SoPat712/obsidian-intelligent-linking/releases/latest",
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -245,7 +250,7 @@ export default class SmartConnectionsPlugin extends Plugin {
         contentType: "application/json",
       });
       const latest_release = response.tag_name;
-      if (latest_release !== this.manifest.version) {
+      if (is_server_version_newer(this.manifest.version, latest_release)) {
         this.env?.events?.emit("plugin:new_version_available", {
           version: latest_release,
         });
@@ -303,7 +308,7 @@ export default class SmartConnectionsPlugin extends Plugin {
       callback: () => {
         StoryModal.open(this, {
           title: "Getting Started With Smart Connections",
-          url: "https://smartconnections.app/story/smart-connections-getting-started/?utm_source=sc-op-command",
+          url: "https://github.com/SoPat712/obsidian-intelligent-linking",
         });
       },
     });

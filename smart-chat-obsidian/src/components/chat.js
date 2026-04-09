@@ -36,7 +36,7 @@ export function build_html(chat_threads_collection, opts = {}) {
       <div class="smart-chat-brand">
         ${this.get_icon_html('smart-chat')}
         <p>
-          <a style="font-weight: 700;" href="https://smartconnections.app/">
+          <a style="font-weight: 700;" href="https://github.com/SoPat712/obsidian-intelligent-linking">
             Smart Chat
           </a>
         </p>
@@ -188,7 +188,7 @@ export async function post_process(chat_threads_collection, container, opts = {}
   container.querySelector('#smart-chat-help-button')?.addEventListener('click', () =>
     StoryModal.open(plugin, {
       title: 'Getting Started With Smart Chat',
-      url: 'https://smartconnections.app/story/smart-connections-getting-started/?utm_source=smart-chat-help#page=chat-interface-1'
+      url: 'https://github.com/SoPat712/obsidian-intelligent-linking'
     })
   );
 

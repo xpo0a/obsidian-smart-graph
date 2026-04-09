@@ -26,7 +26,7 @@ export class SmartContextSettingTab extends SmartPluginSettingsTab {
     launch_button.addEventListener('click', () => {
       StoryModal.open(this.plugin, {
         title: 'Getting Started With Smart Context',
-        url: 'https://smartconnections.app/story/smart-context-getting-started/?utm_source=context-settings',
+        url: 'https://github.com/SoPat712/obsidian-intelligent-linking',
       });
     });
 

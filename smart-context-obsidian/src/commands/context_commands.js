@@ -20,7 +20,7 @@ export function context_commands(plugin) {
       callback: () => {
         StoryModal.open(plugin, {
           title: 'Getting Started With Smart Context',
-          url: 'https://smartconnections.app/story/smart-context-getting-started/?utm_source=sc-command',
+          url: 'https://github.com/SoPat712/obsidian-intelligent-linking',
         });
       },
     },

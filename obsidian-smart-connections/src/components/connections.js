@@ -133,7 +133,7 @@ export async function post_process(entity, container, opts = {}) {
   container.querySelector('[title="Help"]')?.addEventListener('click', () =>
     StoryModal.open(plugin, {
       title: 'Getting Started With Smart Connections',
-      url: 'https://smartconnections.app/story/smart-connections-getting-started/?utm_source=connections-view-help#page=understanding-connections-1'
+      url: 'https://github.com/SoPat712/obsidian-intelligent-linking'
     })
   );
 

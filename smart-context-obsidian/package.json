@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brianpetro/obsidian-smart-connections.git"
+    "url": "git+https://github.com/SoPat712/obsidian-intelligent-linking.git"
   },
   "keywords": [
     "Obsidian",
@@ -20,9 +20,9 @@
   "author": "WFH Brian (Brian Petro)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/brianpetro/smart-context-obsidian/issues"
+    "url": "https://github.com/SoPat712/obsidian-intelligent-linking"
   },
-  "homepage": "https://smartconnections.app",
+  "homepage": "https://github.com/SoPat712/obsidian-intelligent-linking",
   "dependencies": {
     "smart-collections": "file:../jsbrains/smart-collections",
     "obsidian-smart-env": "file:../obsidian-smart-env",

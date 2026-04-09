@@ -62,7 +62,7 @@ export default class SmartContextPlugin extends SmartPlugin {
       setTimeout(() => {
         StoryModal.open(this, {
           title: 'Getting Started With Smart Context',
-          url: 'https://smartconnections.app/story/smart-context-getting-started/?utm_source=sc-new-user',
+          url: 'https://github.com/SoPat712/obsidian-intelligent-linking',
         });
       }, 1000);
       await this.save_installed_at(Date.now());

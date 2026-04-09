@@ -73,28 +73,28 @@ export async function post_process(scope_plugin, frag) {
   frag.querySelector('.sc-getting-started-button')?.addEventListener('click', () => {
     StoryModal.open(scope_plugin, {
       title: 'Getting Started With Smart Connections',
-      url: 'https://smartconnections.app/story/smart-connections-getting-started/?utm_source=sc-op-settings'
+      url: 'https://github.com/SoPat712/obsidian-intelligent-linking'
     });
   });
 
   frag.querySelector('.sc-report-bug-button')?.addEventListener('click', () => {
     open_url_externally(
       scope_plugin,
-      'https://github.com/brianpetro/obsidian-smart-connections/issues/new?template=bug_report.yml'
+      'https://github.com/SoPat712/obsidian-intelligent-linking'
     );
   });
 
   frag.querySelector('.sc-request-feature-button')?.addEventListener('click', () => {
     open_url_externally(
       scope_plugin,
-      'https://github.com/brianpetro/obsidian-smart-connections/issues/new?template=feature_request.yml'
+      'https://github.com/SoPat712/obsidian-intelligent-linking'
     );
   });
 
   frag.querySelector('.sc-share-workflow-button')?.addEventListener('click', () => {
     open_url_externally(
       scope_plugin,
-      'https://github.com/brianpetro/obsidian-smart-connections/discussions/new?category=showcase'
+      'https://github.com/SoPat712/obsidian-intelligent-linking'
     );
   });
 

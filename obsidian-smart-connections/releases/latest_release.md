@@ -83,7 +83,7 @@
 > 
 > > [!NOTE]- v3.0.65
 > > - Added: Smart Chat: button to insert variables into user message
-> > - Patched: Smart Chat: should handle chats that were saved with new name prior to improved thread name handling ([commit 542e1706](https://github.com/brianpetro/smart-chat-obsidian/commit/542e17064f5e3ff0fce7d30583ba472e09bd0b43))
+> > - Patched: Smart Chat: should handle chats that were saved with new name prior to improved thread name handling ([commit 542e1706](https://github.com/SoPat712/obsidian-intelligent-linking))
 > 
 > > [!NOTE]- v3.0.64
 > > - Added: Smart Chat: support for additional variables in messages
@@ -98,7 +98,7 @@
 > > [!NOTE]- v3.0.62
 > > - add option to exclude frontmatter blocks from source connections
 > > - move "Hide blocks from connections results" setting implementation into `find_connections` method instead of relying on passing parameters (respects setting across implementations)
-> > - fix: Ollama custom endpoint: should use custom endpoint when retrieving model-specific information ([commit 2a791aa](https://github.com/brianpetro/jsbrains/commit/2a791aa0df9bb8e130ac6246f8a583624c276b8a))
+> > - fix: Ollama custom endpoint: should use custom endpoint when retrieving model-specific information ([commit 2a791aa](https://github.com/SoPat712/obsidian-intelligent-linking))
 > 
 > > [!NOTE]- v3.0.61
 > > - Added: Status bar: context menu
@@ -426,4 +426,4 @@
 - Improved version release process
 - Smart Chat `v0` (legacy)
 	- Smart Chat `v0` will continue to be available for a short time and will be removed in `v3.1` unless unforeseen issues arise in which case it will be removed sooner.
-	- Smart Chat `v0` code was moved from `brianpetro/jsbrains` to the Smart Connections repo
+	- Smart Chat `v0` code was moved from `SoPat712/obsidian-intelligent-linking` to the Smart Connections repo
