@@ -10,7 +10,9 @@ This fork removes all pro features and enables them for all. I'll start working 
 
 1. Build the plugin:
 ```bash
-cd obsidian-smart-connections && npm run build
+cd obsidian-smart-connections
+npm install
+npm run build
 ```
 
 2. Deploy to your vault:
