@@ -10,11 +10,11 @@ This fork removes all pro features and enables them for all. I'll start working 
 
 1. Build the plugin:
 ```bash
-cd obsidian-smart-connections
-$env:npm_config_sharp_binary_host="https://npmmirror.com/mirrors/sharp"
-$env:npm_config_sharp_libvips_binary_host="https://npmmirror.com/mirrors/sharp-libvips"
+git submodule update --init --recursive
+cd jsbrains
 npm install --registry=https://registry.npmmirror.com
-npm install
+cd ../obsidian-smart-connections
+npm install --registry=https://registry.npmmirror.com
 npm run build
 ```
 
