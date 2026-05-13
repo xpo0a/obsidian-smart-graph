@@ -11,6 +11,9 @@ This fork removes all pro features and enables them for all. I'll start working 
 1. Build the plugin:
 ```bash
 cd obsidian-smart-connections
+$env:npm_config_sharp_binary_host="https://npmmirror.com/mirrors/sharp"
+$env:npm_config_sharp_libvips_binary_host="https://npmmirror.com/mirrors/sharp-libvips"
+npm install --registry=https://registry.npmmirror.com
 npm install
 npm run build
 ```
